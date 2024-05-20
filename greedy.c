@@ -7,6 +7,7 @@
 #define r 6371 //jari" bumi dalam km
 #define MAX_CITIES 100 //jumlah maksimum kota yg dpt diproses
 #define INF 1e9 //definisi untuk jarak minimum
+#define M_PI 3.14159265358979323846
 
 typedef struct{
     char name[100];
@@ -45,7 +46,7 @@ void readCSV(const char* filename){
         exit(EXIT_FAILURE);
     }
 
-    char line[256];
+    char line[256]; //array untuk menyimpan baris yang dibaca dari file
     while(fgets(line,sizeof(line), file)){
         sscanf(line, "%[^,], %lf, %lf", cities[numCities].name, &cities[numCities].latitude, &cities[numCities].longitude);
         numCities++;
@@ -59,7 +60,7 @@ void readCSV(const char* filename){
 int findCityIndex(const char* name){
     for(int i = 0; i < numCities; i++){
         if(strcmp(cities[i].name, name) == 0){
-            return 1;
+            return i;
         }
     }
 
@@ -141,7 +142,7 @@ void shortestPathGreedy(int startIndex){
     clock_t end = clock(); //waktu berakhirnya eksekusi
 
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Time elapsed: %.10lf s\n", timeSpent);
+    printf("Time elapsed: %.10lf seconds\n", timeSpent);
 }
 
 
