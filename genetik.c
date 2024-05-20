@@ -13,7 +13,6 @@
 #define EARTH_RADIUS 6371.0 // Radius Bumi dalam km
 #define PI 3.14159265358979323846 // Radius Bumi dalam km
 
-
 typedef struct {
     char name[MAX_CITY_NAME_LENGTH];
     double latitude;
