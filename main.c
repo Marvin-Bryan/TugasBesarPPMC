@@ -7,7 +7,6 @@
 #include <float.h>
 #include <limits.h>
 
-
 #define MAX_CITIES 100
 #define RADIUS_EARTH 6371
 #define PI 3.14159265358979323846
